@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+    <br><br>
+    
+
+<form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container-2">
+
+    <div class="container-2-box">
+
+    </div>
+    <div class="container-2-box">
+      <div class='container-3'>
+        <div class='container-3-box'>
+
+              <div class="ui fluid segment">
+                <h5>(Please note that your files must be in .mkv or .mp4 format only. Other formats are not supported.)</h5>
+
+                <div class = 'center'>
+                  
+                  <label for="hidden-new-file" class="ui icon button ui huge blue floated" style='width:650px;'>
+                    
+                    <form>
+                      <div class="form-group">
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="video">
+                      </div>
+                    </form>
+                 
+                    <i class="ui upload icon "></i>
+                    Upload Video
+                  </label>
+                  <!-- <input type="file" id="hidden-new-file" style="display: none" name='video'> -->
+                </div>
+
+              
+              </div>
+
+          <div class="ui form">
+            <div class="field">
+              <label><h4>Title</h4></label>
+              <input type="text" name="title">
+            </div>
+
+            <div class="ui form">
+              <div class="field">
+                <label><h4>Description</h4></label>
+                <textarea style="margin-top: 0px; margin-bottom: 0px; height: 165px;" name='description'></textarea>
+              </div>
+            </div>
+
+<br> <br>
+
+            <button class="ui gray button blue" type='submit' style='height:65px;width:150px ;float:right' name='submitbutton'> <h4>Upload</h4> </button>
+          </div>
+
+
+        </div>
+        <div class='container-3-box'>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container-2-box">
+
+    </div>
+  </div>
+
+
+
+
+</form>
+
+{% endblock %}
+
+    <style>
+       body{
+           background-color:  #1b2125;
+           font-family: 'Chakra Petch', sans-serif !important; 
+           color: white;
+           padding: 40px;
+           align-items: center;
+        }
+    </style>
+</body>
+</html>

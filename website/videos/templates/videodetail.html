@@ -1,0 +1,151 @@
+{% extends './base.html' %}
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<!-- VIDEO.JS CSS -->
+<link rel='stylesheet' href='https://vjs.zencdn.net/4.12/video-js.css'>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://vjs.zencdn.net/4.12/video.js'></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class='main'>
+    <form >
+      <button class="ui button yellow " formaction='{% url 'videos' %}' style="margin-left: 30rem;">Recent Videos</button>
+      </form>
+  <!--  VIDEO PLAYER -->
+  <div class='container-2'>
+  
+    <div class="box-2">
+      <div class="wrapper">
+        <div class="videocontent">
+          <video id="vid1" src="{{video.video.url}}" autoplay controls="true" class="video-js vjs-default-skin vjs-4-3 vjs-big-play-centered center  " width="1080" height="710" preload="auto" data-setup='{"fluid": true}'>
+  
+          </video>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!--  RECOMMENDATIONS -->
+    <div class="box-3">
+      <div class='container-2'>
+  
+        <div class="inner_container recommendations">
+          {% for video in recentvideos %}
+          <div class="container-3-box">
+            <div class='ui raised segment'> <a class="ui teal left ribbon label"> {{video.likes}}</a>
+              <div class='container-2'>
+                <p><a href = "{% url 'detail' video.id %}"><img src='{{video.thumbnail.url}}' height=100 width=100 class='border recommend'  /></a> </p>
+                <div class="center">
+                  <h2> {{video.title}}
+  
+                  </h2>
+                  <p>
+                    <span><i>{{video.user.username}}</i></span>
+                    <span style='color:teal;'><i></br>{{video.views}} views</i></span>
+                  </p>
+                </div>
+  
+              </div>
+  
+            </div>
+          </div>
+          {% endfor %}
+  
+  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <!--  DESCRIPTION -->
+  
+  <div class="container-2 description ">
+  
+    <div class="container-1-box ">
+  
+      <h3><span style='text-align: left;'>{{video.title}} </span> </h3>
+      <hr style='width:1080px;'>
+      <img src='{{ userprofile.picture.url }}' height=75 width=75 class='round'>
+  
+      </img>
+      <p style='color:purple;' class='creator'><b>{{video.user.username}}</b></p>
+    
+  
+      <h4 style='color:teal;'><i>{{video.views}} views</i></h4>
+  
+      <p>
+        {{video.description}}
+    
+      
+  </div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  <div class="pagination" style='margin-top:50px; margin-left:100px;'>
+  
+    <span class="step-links">
+      {% if queryset.has_previous %}
+  
+      <a href="?page=1">
+  
+        <i class="step backward icon"></i> First
+  
+      </a>
+      <a href="?page={{ queryset.previous_page_number }}">
+  
+        <i class="reply icon"></i> Previous
+      </a>
+      {% endif %}
+  
+      <span class="current">
+        Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
+      </span>
+  
+      {% if queryset.has_next %}
+      <a href="?page={{ queryset.next_page_number }}">
+  
+        <i class="play icon"></i> Next
+  
+  
+      </a>
+      <a href="?page={{ queryset.paginator.num_pages }}">
+  
+        <i class="step forwar icon"></i> Last
+  
+      </a>
+      {% endif %}
+    </span>
+  </div>
+  </div>
+  {% load static %}
+  <script src="{% static 'js/videoplayer.js' %}"></script>
+  
+  
+  
+  
+  
+</body>
+</html>
+
+
+
+{% endblock %}

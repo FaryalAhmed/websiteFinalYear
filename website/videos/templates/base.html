@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<div class="container-1" >
+
+  <div class="box-2" style="margin-left:40ex;">
+
+  <div id = 'search'>
+    <form method = 'GET' action = '' class="ui form search">
+         <div class="ui action input">
+           <input size= 55 type="text" name='query' placeholder="Search" value = '{{ request.GET.query  }}'/>
+           <input type = 'submit' class="ui button blue" value = 'Find Videos'  ></input>
+         </div>
+
+       </form>
+
+
+
+
+    </form>
+
+    </div>
+  </div>
+  <div class="box-3">
+
+    <div id = 'account' class = 'center'>
+      
+{% if not user.is_authenticated %}
+<form action="">
+  <button class="ui blue button account" formaction='{% url 'signup' %}'">Sign Up</button>
+</form>
+<form >
+  <button class="ui yellow button account" formaction='{% url 'login' %}'">Log In</button>
+
+</form>
+{% else %}
+<form >
+<button class="ui teal button account" formaction  ='{% url 'upload' %}' >Upload</button>
+
+</form>
+
+<form >
+<button class="ui red button account" formaction='{% url 'logout' %}'>Log Out</button>
+{% endif %}
+</form>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+{%block content%}
+
+{% endblock %}
+
+</body>
+<footer>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+</footer>
+
+</html>
+
+
+    
