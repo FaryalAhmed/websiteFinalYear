@@ -4,55 +4,317 @@
 <html lang="en" >
 
 <head>
-  <meta charset="UTF-8">
-      {% load static %}
-      <link rel="stylesheet" href="{% static 'css/style.css' %}">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.css">
+    <link href="https://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  
+     
+
 
 </head>
+
+<style>
+  /* Called After Collapse*/
+@media(max-width:1200px){
+
+#logo
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float:none;
+
+}
+img.recommend
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float:none;
+}
+
+#buttons
+{
+  margin-left: auto;
+  margin-right: 23%;
+  width: 50%;
+
+
+
+}
+  div.center
+{
+  width: 50%;
+  margin-top:2rem;
+
+}
+
+#search{
+  width: 50%;
+  margin-top:2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+/* Called When Mobile*/
+@media(max-width:860px){
+
+#account{
+  margin-right:21%;
+
+}
+  #search{
+  width: 50%;
+  margin-top:2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+/* Called Before Collapse*/
+@media(min-width:1200px){
+div.center
+{
+  width: 50%;
+  margin-top:2rem;
+
+}
+  .container-1{
+    display:flex;
+
+    /*
+    justify-content:flex-end;
+    align-items:flex-start;
+    align-items:flex-end;
+    align-items:center;
+
+    flex-direction:column;
+    */
+  }
+
+
+  .container-2{
+    display:flex;
+
+    /*
+    justify-content:space-between;
+    justify-content:flex-start;
+    justify-content:flex-end;
+    justify-content:center;
+    justify-content:space-around;
+    */
+    justify-content:space-between;
+
+  }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+.container-3{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  flex-direction: column;
+
+
+     /*
+    justify-content:flex-start;
+    justify-content:flex-end;
+    justify-content:center;
+    justify-content:space-around;
+   justify-content:space-between;
+    */
+
+}
+
+
+
+.box-1{
+    flex:1;
+    order:1;
+    margin-left: 20rem;
+    margin-right: 20rem;
+  }
+
+
+
+.box-2{
+  flex:1;
+  order:1;
+  margin-left: 1rem;
+
+}
+
+.box-3{
+  flex:1;
+  order: 2;
+  margin-left: 1rem;
+
+
+}
+.recommendations{
+margin-top:2rem;
+}
+
+.search
+{
+margin-top:2rem;
+}
+.description
+{
+margin-top:1%;
+margin-left:6%;
+
+}
+
+input.padding
+{
+margin-top:2rem;
+padding:5px;
+}
+.container-1-box{
+  flex-basis: 54%;
+}
+
+.container-2-box{
+  flex-basis: 34%;
+}
+
+.container-3-box{
+  flex-basis:50%;
+}
+
+img
+{
+margin-top:10px;
+
+}
+.right {
+  float: right;
+  padding: 5px;
+}
+#logo
+{
+padding:15px;
+
+}
+button.account
+{
+height:35px;
+width:100px;
+}
+.left
+{
+float:left;
+
+}
+.border
+{
+ border-style: solid;
+ border-color: gray;
+ border-width: 2px 2px 2px 2px;
+}
+
+.round {
+border-color:black;
+border-style: solid;
+border-width: 1px 1px 1px 1px;
+border-radius: 50px;
+
+}
+
+textarea {
+ resize: none;
+
+}
+
+.creator
+{
+margin-top:-55px;
+margin-left:95px;
+font-size:2rem;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.button-comment
+{
+height:55px;
+width:55px;
+}
+.button-pagnation
+{
+width:150px;
+height:35px;
+}
+
+.grid.container {
+margin-top: 5em;
+}
+.inputfile {
+width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+}
+
+</style>
+<body>
+
+  
+
+
 <div class="container-1" >
+  
+  <!-- This Flexbox will focus primarily on using search to find videos -->
+  <div class="box-1">
 
-  <div class="box-2" style="margin-left:40ex;">
-
-  <div id = 'search'>
+  <div id = 'search' >
     <form method = 'GET' action = '' class="ui form search">
          <div class="ui action input">
            <input size= 55 type="text" name='query' placeholder="Search" value = '{{ request.GET.query  }}'/>
-           <input type = 'submit' class="ui button blue" value = 'Find Videos'  ></input>
+           <input type = 'submit' class="ui button teal" value = 'Find Videos'  ></input>
          </div>
-
-       </form>
-
-
-
 
     </form>
 
     </div>
   </div>
-  <div class="box-3">
+  <div class="box-2">
 
     <div id = 'account' class = 'center'>
-      
-{% if not user.is_authenticated %}
-<form action="">
-  <button class="ui blue button account" formaction='{% url 'signup' %}'">Sign Up</button>
-</form>
-<form >
-  <button class="ui yellow button account" formaction='{% url 'login' %}'">Log In</button>
-
-</form>
-{% else %}
-<form >
-<button class="ui teal button account" formaction  ='{% url 'upload' %}' >Upload</button>
-
-</form>
-
-<form >
-<button class="ui red button account" formaction='{% url 'logout' %}'>Log Out</button>
-{% endif %}
-</form>
+      <div id = 'buttons'>
+        {% if not user.is_authenticated %}
+        <form action="">
+          <button class="ui blue button account" formaction='{% url 'signup' %}'">Sign Up</button>
+        </form>
+        <form >
+          <button class="ui yellow button account" formaction='{% url 'login' %}'">Log In</button>
+        
+        </form>
+        {% else %}
+        <form >
+        <button class="ui teal button account" formaction  ='{% url 'upload' %}' >Upload</button>
+        
+        </form>
+        
+        <form >
+        <button class="ui red button account" formaction='{% url 'logout' %}'>Log Out</button>
+        </form>
+        {% endif %}
         </div>
     </div>
 
@@ -70,6 +332,3 @@
 </footer>
 
 </html>
-
-
-    
