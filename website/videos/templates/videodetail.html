@@ -112,7 +112,7 @@
       </a>
       <a href="?page={{ queryset.previous_page_number }}">
   
-        <i class="reply icon"></i> Previous
+        <i class="step backward icon"></i> Previous
       </a>
       {% endif %}
   
@@ -123,13 +123,13 @@
       {% if queryset.has_next %}
       <a href="?page={{ queryset.next_page_number }}">
   
-        <i class="play icon"></i> Next
+        <i class="step forward icon"></i> Next
   
   
       </a>
       <a href="?page={{ queryset.paginator.num_pages }}">
   
-        <i class="step forwar icon"></i> Last
+        <i class="step forward icon"></i> Last
   
       </a>
       {% endif %}
