@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'videos',
-
+    'django_countries',
 
 ]
 
@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'delete_it',
         'USER':'root',
-        'PASSWORD':'itsmysqlpassword123'
+        'PASSWORD':'mypass'
     }
 }
 

@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 
-
 class Video(models.Model):
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
@@ -34,4 +33,5 @@ class UserProfile(models.Model):
 
     class Meta:
         ordering = ["-username",]
+
 

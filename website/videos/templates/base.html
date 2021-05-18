@@ -1,20 +1,70 @@
 
-
 <!DOCTYPE html>
 <html lang="en" >
 
 <head>
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.css">
     <link href="https://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
-  
-     
-
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
 
 </head>
 
+<div class="container-1" >
+  <div class="container-4-box">
+
+    </div>
+                                                                                                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- This Flexbox will focus primarily on using search to find videos -->
+  <div class="box-1">
+
+  <div id = 'search' >
+    <form method = 'GET' action = '' class="ui form search">
+         <div class="ui action input">
+           <input size= 55 type="text" name='query' placeholder="Search" value = '{{ request.GET.query  }}'/>
+           <input type = 'submit' class="ui button teal" value = 'Find Videos'  ></input>
+         </div>
+
+    </form>
+
+    </div>
+  </div>
+  <div class="box-2">
+
+    <div id = 'account' class = 'center'>
+      <div id = 'buttons'>
+        {% if not user.is_authenticated %}
+        <form action="">
+          <button class="ui olive basic button" formaction='{% url 'signup' %}' >Sign Up</button>
+        </form>
+        <form >
+          <button class="ui red basic button" formaction='{% url 'login' %}'>Log In</button>
+        
+        </form>
+        {% else %}
+        <form >
+        <button class="ui violet basic button" formaction  ='{% url 'upload' %}' style="  font-family: 'Chakra Petch', sans-serif !important; ">Upload</button>
+        
+        </form>
+        <br>
+        <form >
+        <button class="ui red basic button" formaction='{% url 'logout' %}'>Log Out</button>
+        </form>
+        {% endif %}
+        </div>
+    </div>
+
+  </div>
+</div>
+
+{%block content%}
+
+{% endblock %}
+
+</body>
+
+
 <style>
+
   /* Called After Collapse*/
 @media(max-width:1200px){
 
@@ -270,62 +320,16 @@ overflow: hidden;
 position: absolute;
 z-index: -1;
 }
-
+body{
+  background-color:  #1b2125;
+  padding: 10px;
+  padding-bottom: 20px;
+   font-family: 'Chakra Petch', sans-serif !important; 
+           color: white;
+           padding: 40px;
+           align-items: center;
+}
 </style>
-<body>
-
-  
-
-
-<div class="container-1" >
-  
-  <!-- This Flexbox will focus primarily on using search to find videos -->
-  <div class="box-1">
-
-  <div id = 'search' >
-    <form method = 'GET' action = '' class="ui form search">
-         <div class="ui action input">
-           <input size= 55 type="text" name='query' placeholder="Search" value = '{{ request.GET.query  }}'/>
-           <input type = 'submit' class="ui button teal" value = 'Find Videos'  ></input>
-         </div>
-
-    </form>
-
-    </div>
-  </div>
-  <div class="box-2">
-
-    <div id = 'account' class = 'center'>
-      <div id = 'buttons'>
-        {% if not user.is_authenticated %}
-        <form action="">
-          <button class="ui blue button account" formaction='{% url 'signup' %}'">Sign Up</button>
-        </form>
-        <form >
-          <button class="ui yellow button account" formaction='{% url 'login' %}'">Log In</button>
-        
-        </form>
-        {% else %}
-        <form >
-        <button class="ui teal button account" formaction  ='{% url 'upload' %}' >Upload</button>
-        
-        </form>
-        
-        <form >
-        <button class="ui red button account" formaction='{% url 'logout' %}'>Log Out</button>
-        </form>
-        {% endif %}
-        </div>
-    </div>
-
-  </div>
-</div>
-
-{%block content%}
-
-{% endblock %}
-
-</body>
 <footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 

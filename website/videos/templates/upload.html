@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
  
 </head>
-<body>
+<body style="padding-bottom:10px;" >
     <br><br>
     
 
@@ -30,7 +30,7 @@
     </div>
     <div class="container-2-box">
       <div class='container-3'>
-        <div class='container-3-box'>
+        <div class='container-2-box'>
 
               <div class="ui fluid segment">
                 <h5>(Please note that your files must be in .mkv or .mp4 format only. Other formats are not supported.)</h5>
@@ -49,29 +49,28 @@
                     Upload Video
                   </label>
                   <!-- <input type="file" id="hidden-new-file" style="display: none" name='video'> -->
-                </div>
-
-              
+                </div>        
               </div>
 
           <div class="ui form">
             <div class="field">
-              <label><h4>Title</h4></label>
+              <label><h4 style="color: white;">Title</h4></label>
               <input type="text" name="title">
             </div>
 
             <div class="ui form">
               <div class="field">
-                <label><h4>Description</h4></label>
+                <label><h4 style="color: white;">Description</h4></label>
                 <textarea style="margin-top: 0px; margin-bottom: 0px; height: 165px;" name='description'></textarea>
               </div>
             </div>
 
 <br> <br>
+           
 
-            <button class="ui gray button blue" type='submit' style='height:65px;width:150px ;float:right' name='submitbutton'> <h4>Upload</h4> </button>
+            <button class="ui teal basic button" type='submit' 
+            style='float:left; margin-bottom:20px;' name='submitbutton'> <h4>Upload</h4> </button>
           </div>
-
 
         </div>
         <div class='container-3-box'>
@@ -85,21 +84,9 @@
     </div>
   </div>
 
-
-
-
 </form>
 
 {% endblock %}
 
-    <style>
-       body{
-           background-color:  #1b2125;
-           font-family: 'Chakra Petch', sans-serif !important; 
-           color: white;
-           padding: 40px;
-           align-items: center;
-        }
-    </style>
 </body>
 </html>
