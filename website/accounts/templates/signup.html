@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
+    <script>
+var check = function() {
+  if (document.getElementById('inputPassword1').value ==
+    document.getElementById('inputPassword2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Matched!';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Not matched :(';
+  }
+}
+</script>
+
 </head>
 <body style=" background-color:  #1b2125;">
     <div class="container">
@@ -35,7 +49,8 @@
 
                     <label for="inputEmail4">Email</label>
                      <div data-tip="Follow correct email format.">
-                    <input required type="email" class="form-control" id="inputEmail4" placeholder="Enter Email" name="email">     
+                    <input required type="email" class="form-control" id="inputEmail4" placeholder="Enter Email" 
+                    name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+.[a-z]{3}$">     
                     </div>
                     <br>
 
@@ -56,10 +71,16 @@
                     <br>
 
                     <label for="inputPassword1">Password</label>
-                    <input required type="password" class="form-control" id="inputPassword1" placeholder="Password" name="password1">
+                    <div data-tip="Minimum 4 chracters allowed.">
+                    <input required type="password" class="form-control" id="inputPassword1" 
+                    placeholder="Password" name="password1" pattern=".{4,}" onkeyup='check();'>
+                    </div>
                     <br>
                     <label for="inputPassword2">Confirm Password</label>
-                    <input required type="password" class="form-control" id="inputPassword1" placeholder="Retype Password" name= "password2">
+                    <input required type="password" class="form-control" id="inputPassword2" 
+                    placeholder="Retype Password" name= "password2" pattern=".{4,}" onkeyup='check();'>
+                    <span id='message'></span>
+                    <br>
                     <br>                 
             </div>
             <div class="col-md-4">
