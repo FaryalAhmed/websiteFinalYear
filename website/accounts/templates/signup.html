@@ -17,35 +17,49 @@
         {% csrf_token %}
         <div class="row">
             <div class="col-md-4">
-
             </div>
             <div class="col-md-4">
                 <h2 style="text-align: center;">Signup for a new account &copy;
                 </h2>
                      <label for="inputName4">First Name</label>
-                     <input type="text" class="form-control" id="inputName4" placeholder="Enter name" name="firstname"> 
+                     <div data-tip="Minimum three letters needed.">
+                     <input required pattern="[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" type="text" class="form-control" id="inputName4" placeholder="Enter first name" name="firstname"> 
+                     </div>
                      <br>
+                     
                      <label for="inputName4">Last Name</label>
-                     <input type="text" class="form-control" id="inputName4" placeholder="Enter name" name="lastname"> 
+                     <div data-tip="Minimum three letters needed.">
+                     <input required type="text" pattern="[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" class="form-control" id="inputName4" placeholder="Enter last name" name="lastname"> 
+                     </div>
                      <br>
+
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Enter Email" name="email">     
+                     <div data-tip="Follow correct email format.">
+                    <input required type="email" class="form-control" id="inputEmail4" placeholder="Enter Email" name="email">     
+                    </div>
                     <br>
 
-                    <label for="inputName1">Userame</label>
-                    <input type="text" class="form-control" id="inputName1" placeholder="Enter name" name = "username"> 
+                    <label for="inputName1">Username</label>
+                    <input required type="text" class="form-control" id="inputName1" 
+                    placeholder="Enter username" name = "username" pattern="\S+.*"> 
                     <br>
+
                     <label for="contact_no"> Contact_no </label>
-                    <input type="text" class = "form-control" name="contact_no" id="contact_no">
+                    <div data-tip="Pakistan Mobile Number format only.">
+                    <input required maxlength="11" type="text" class = "form-control" name="contact_no" 
+                    id="contact_no" placeholder="03xxxxxxxxx" pattern="03[0-9]{2}[0-9]{7}">
+                    </div>
                     <br>
+
                     <label> Profile Picture (optional) </label>
                     <input type="file" class="form-control" name="picture">
                     <br>
+
                     <label for="inputPassword1">Password</label>
-                    <input type="password" class="form-control" id="inputPassword1" placeholder="Password" name="password1">
+                    <input required type="password" class="form-control" id="inputPassword1" placeholder="Password" name="password1">
                     <br>
                     <label for="inputPassword2">Confirm Password</label>
-                    <input type="password" class="form-control" id="inputPassword1" placeholder="Retype Password" name= "password2">
+                    <input required type="password" class="form-control" id="inputPassword1" placeholder="Retype Password" name= "password2">
                     <br>                 
             </div>
             <div class="col-md-4">
@@ -85,6 +99,50 @@
          background-color: rgb(24, 107, 120) !important;
          
          }
+      [data-tip] {
+	position:relative;
+
+}
+[data-tip]:before {
+	content:'';
+	/* hides the tooltip when not hovered */
+	display:none;
+	content:'';
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #1a1a1a;	
+	position:absolute;
+	  top: -5px;
+  left: 105%;
+	z-index:8;
+	font-size:0;
+	line-height:0;
+	width:0;
+	height:0;
+}
+[data-tip]:after {
+	display:none;
+	content:attr(data-tip);
+	position:absolute;
+	  top: -5px;
+  left: 105%;
+	padding:5px 8px;
+	background:#1a1a1a;
+	color:#fff;
+	z-index:9;
+	font-size: 0.75em;
+	height:18px;
+	line-height:18px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	white-space:nowrap;
+	word-wrap:normal;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+	display:block;
+}
    </style>
 </body>
 </html>
