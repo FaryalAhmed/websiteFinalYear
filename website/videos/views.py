@@ -7,7 +7,6 @@ from django.contrib import auth
 
 
 
-
 def UploadView(request):
     if not request.user.is_authenticated:
         return redirect('../login')
@@ -85,7 +84,6 @@ def VideoDetailView(request,video_id):
 
 
     return render(request,'videodetail.html',{'video':video,'recentvideos':recentvideos, 'userprofile':userprofile})
-
 
 
 

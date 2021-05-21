@@ -1,10 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+var _validFileExtensions = [".mp4", ".mkv"];    
+function Validate(oForm) {
+    var arrInputs = oForm.getElementsByTagName("input");
+    for (var i = 0; i < arrInputs.length; i++) {
+        var oInput = arrInputs[i];
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+                
+                if (!blnValid) {
+                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", ") + " only.");
+                    return false;
+                }
+            }
+        }
+    }
+  
+    return true;
+}
+</script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +45,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
  
 </head>
-<body>
-    <br><br>
-    
 
-<form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+<body style="padding-bottom:10px;" >
+<br><br>
+<form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data" onsubmit="return Validate(this);" >
   {% csrf_token %}
   <div class="container-2">
 
@@ -30,18 +57,18 @@
     </div>
     <div class="container-2-box">
       <div class='container-3'>
-        <div class='container-3-box'>
+        <div class='container-2-box'>
 
-              <div class="ui fluid segment">
-                <h5>(Please note that your files must be in .mkv or .mp4 format only. Other formats are not supported.)</h5>
+              <div class="ui fluid segment" style="background-color:#2185d0;">
+                <h5 style="color:black;">(Please note that your files must be in .mkv or .mp4 format only. Other formats are not supported.)</h5>
 
                 <div class = 'center'>
                   
                   <label for="hidden-new-file" class="ui icon button ui huge blue floated" style='width:650px;'>
                     
-                    <form>
+                    <form> 
                       <div class="form-group">
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="video">
+                        <input type="file" required class="form-control-file" id="exampleFormControlFile1" name="video">
                       </div>
                     </form>
                  
@@ -49,29 +76,25 @@
                     Upload Video
                   </label>
                   <!-- <input type="file" id="hidden-new-file" style="display: none" name='video'> -->
-                </div>
-
-              
+                </div>        
               </div>
 
           <div class="ui form">
             <div class="field">
-              <label><h4>Title</h4></label>
-              <input type="text" name="title">
+              <label><h4 style="color: white; ">Title</h4></label>
+              <input type="text" name="title" style=" font-size:larger;" required >
             </div>
 
             <div class="ui form">
               <div class="field">
-                <label><h4>Description</h4></label>
-                <textarea style="margin-top: 0px; margin-bottom: 0px; height: 165px;" name='description'></textarea>
+                <label><h4 style="color: white;">Description</h4></label>
+                <textarea required style="margin-top: 0px; margin-bottom: 0px; height: 165px; font-size:larger;" name='description'></textarea>
               </div>
             </div>
-
 <br> <br>
-
-            <button class="ui gray button blue" type='submit' style='height:65px;width:150px ;float:right' name='submitbutton'> <h4>Upload</h4> </button>
+            <input class="ui teal basic button" type='submit' 
+            style='float:left; margin-bottom:20px; padding: 16px; font-size:larger; width:150px;' name='submitbutton' >  
           </div>
-
 
         </div>
         <div class='container-3-box'>
@@ -85,21 +108,10 @@
     </div>
   </div>
 
-
-
-
 </form>
 
 {% endblock %}
 
-    <style>
-       body{
-           background-color:  #1b2125;
-           font-family: 'Chakra Petch', sans-serif !important; 
-           color: white;
-           padding: 40px;
-           align-items: center;
-        }
-    </style>
 </body>
+
 </html>
