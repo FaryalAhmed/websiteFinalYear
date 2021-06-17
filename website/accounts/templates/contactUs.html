@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
+
+    <title>Contact Us</title>
+</head>
+<body>
+    <h1 style="text-align:center;">The Contact Us Form</h1>
+    <p style="text-align:center;">We are just a message away to answering your queries. Don't hesitate and let us know!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="column">
+
+    <div class="content_img">
+ <img src="https://i.pinimg.com/originals/ff/2b/29/ff2b296b0a5e999290fa718af0b55016.gif" 
+      style="width:100%; height:450px; border-radius:20px;" class="image">
+ <div>Traffic Detection. Tokyo, Japan.</div>
+</div>
+  </div>
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." 
+         pattern="[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" required>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your email.." pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+.[a-z]{3}$"
+        required>
+
+        <label for="reason">Reason of Contact</label>
+        <select id="reason" name="reason" required>
+          <option value="complain">Complaint</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="query">Query</option>
+        </select>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write message.." style="height:170px" required></textarea>
+       
+        <input type="submit" value="Submit" >
+      </form>
+    </div>
+  </div>
+</div>
+
+    <style>
+   body{
+           background-color:  #1b2125;
+           font-family: 'Chakra Petch', sans-serif ; 
+           color: white;
+           padding: 40px;
+           align-items: center;
+       }
+       button{
+         background-color: rgb(24, 107, 120) !important;
+         
+         }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+   
+        img:hover{
+          opacity: 0.275;
+        }
+
+        /* Style inputs */
+        input[type=text], select, textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          margin-top: 6px;
+          margin-bottom: 16px;
+          resize: vertical;
+          border-radius: 20px;
+        }
+        
+        input[type=submit] {
+          background-color: #04AA6D;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          cursor: pointer;
+          margin-left: 250px;
+          border-radius: 10px;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+          box-shadow: 5px 5px 20px #567E3A;
+        }
+
+        input[type=text]:hover {
+
+          box-shadow: 5px 5px 20px #008060;
+        }
+        
+        /* Style container/contact section */
+        .container {
+          position:relative;
+          border-radius: 25px;
+          background-color: #273036;
+          padding: 10px;
+          box-shadow: -5px -5px 30px 5px rgba(0, 0, 0, 25), rgba(0, 0, 0, 25) 0px 54px 55px;
+          /*box-shadow: rgba(0, 0, 0, 25) 0px 54px 55px, 
+                      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                      rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+                      rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+                      rgba(0, 0, 0, 490) 0px -3px 5px;*/
+        }
+        
+        .column {
+          float: left;
+          width: 50%;
+          margin-top: 6px;
+          padding: 20px;
+        }
+        
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+
+        /* when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .column, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+          }
+        }
+
+
+        /**/
+
+        .content_img{
+ position: relative;
+}
+
+/* Child Text Container */
+.content_img div{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ background: #1b2125;;
+ color: white;
+ margin-bottom: 5px;
+ font-family: sans-serif;
+ opacity: 0;
+ visibility: hidden;
+ -webkit-transition: visibility 0s, opacity 0.5s linear; 
+ transition: visibility 0s, opacity 0.5s linear;
+}
+
+/* Hover on Parent Container */
+.content_img:hover{
+ cursor: pointer;
+}
+
+.content_img:hover div{
+ width: 300px;
+ padding: 8px 15px;
+ visibility: visible;
+ opacity: 0.7; 
+ margin-bottom: 50px;
+}
+</style>
+</body>
+</html>

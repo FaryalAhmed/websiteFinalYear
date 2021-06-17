@@ -74,9 +74,10 @@
     }
   }
 
-  function ValidateEmail(inputText){
+  var check69 = function() {
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if(!inputText.value.match(mailformat)){
+    var x = document.forms["myForm"]["email"].value;
+    if(!x.match(mailformat)){
       alert("You have entered an invalid email address!");
       document.myForm.email.focus();
       return false;
@@ -115,7 +116,8 @@
 
                     <label for="inputEmail4">Email</label>
                      <div data-tip="Follow correct email format.">
-                    <input required type="email" class="form-control" id="inputEmail4" placeholder="Enter Email" 
+                    <input required type="email" 
+                    onfocusout='check9();' class="form-control" id="inputEmail4" placeholder="Enter Email" 
                     name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+.[a-z]{3}$">     
                     </div>
                     <br>
@@ -159,8 +161,7 @@
             </div>
 
             <div class="col-md-7">
-                <button type="submit" class="btn btn-primary" href="admin" 
-                onclick="ValidateEmail(document.myForm.email)" >
+                <button type="submit" class="btn btn-primary" href="admin" >
                   Sign Up & continue
                 </button>
              </div>  
