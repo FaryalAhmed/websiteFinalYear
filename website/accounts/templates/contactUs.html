@@ -20,29 +20,42 @@
  <img src="https://i.pinimg.com/originals/ff/2b/29/ff2b296b0a5e999290fa718af0b55016.gif" 
       style="width:100%; height:450px; border-radius:20px;" class="image">
  <div>Traffic Detection. Tokyo, Japan.</div>
+ <br><br>
+ <input type="reset" value="Reset form">
+
 </div>
   </div>
     <div class="column">
-      <form action="/action_page.php">
+      <form action="https://formsubmit.co/45ec538c899fabd4dc394ced8a20d5f8" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <!--add the link here once app is running on server-->
+        <input type="hidden" name="_next" value="./ty.html">
+
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name.." 
+        <input type="text" id="fname" name="Name" placeholder="Your name here.." 
          pattern="[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" required>
 
         <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Your email.." pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+.[a-z]{3}$"
+        <input type="text" id="email" name="Email" placeholder="Your email.." pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+.[a-z]{3}$"
         required>
 
         <label for="reason">Reason of Contact</label>
-        <select id="reason" name="reason" required>
+        <select id="reason" name="Subject" required>
           <option value="complain">Complaint</option>
           <option value="suggestion">Suggestion</option>
           <option value="query">Query</option>
         </select>
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write message.." style="height:170px" required></textarea>
-       
+        <label for="subject">The Message</label>
+        <textarea id="subject" name="Body" placeholder="Your message goes here.." style="height:170px"
+         minlength="5" maxlength="100" required></textarea>
+        <input type="hidden" name="_autoresponse" value="Your message has been recieved! Our team will get in touch shortly!">
+    
         <input type="submit" value="Submit" >
+
+
+
       </form>
     </div>
   </div>
@@ -55,6 +68,11 @@
            color: white;
            padding: 40px;
            align-items: center;
+           position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
        }
        button{
          background-color: rgb(24, 107, 120) !important;
@@ -79,6 +97,7 @@
           margin-bottom: 16px;
           resize: vertical;
           border-radius: 20px;
+         
         }
         
         input[type=submit] {
@@ -87,13 +106,30 @@
           padding: 12px 20px;
           border: none;
           cursor: pointer;
-          margin-left: 250px;
+          margin-left: 200px;
           border-radius: 10px;
+          
         }
         
         input[type=submit]:hover {
-          background-color: #45a049;
-          box-shadow: 5px 5px 20px #567E3A;
+          background-color: #1cc925;
+          box-shadow: 5px 5px 20px #6fb53d;
+        }
+
+        input[type=reset] {
+          background-color: #bd3927dc;
+          color: white;
+          padding: 8px 15px;
+          border: none;
+          cursor: pointer;
+          margin-left: 120px;
+          margin-top: -170px;
+          border-radius: 10px;
+        }
+        
+        input[type=reset]:hover {
+          background-color: #fd0404;
+          box-shadow: 5px 5px 20px #d54723;
         }
 
         input[type=text]:hover {
@@ -107,7 +143,7 @@
           border-radius: 25px;
           background-color: #273036;
           padding: 10px;
-          box-shadow: -5px -5px 30px 5px rgba(0, 0, 0, 25), rgba(0, 0, 0, 25) 0px 54px 55px;
+          box-shadow: -5px -5px 30px 5px rgb(63, 64, 66, 20), rgba(0, 0, 0, 25) 0px 54px 55px;
           /*box-shadow: rgba(0, 0, 0, 25) 0px 54px 55px, 
                       rgba(0, 0, 0, 0.12) 0px -12px 30px,
                       rgba(0, 0, 0, 0.12) 0px 4px 6px, 
@@ -115,6 +151,13 @@
                       rgba(0, 0, 0, 490) 0px -3px 5px;*/
         }
         
+        .container:hover{
+          box-shadow: -5px -5px 30px 5px rgba(0, 0, 0, 25), rgba(0, 0, 0, 25) 0px 54px 55px;
+        }
+        textarea:focus{
+          box-shadow: 5px 5px 20px #008060;
+
+        }
         .column {
           float: left;
           width: 50%;
@@ -164,6 +207,7 @@
 /* Hover on Parent Container */
 .content_img:hover{
  cursor: pointer;
+
 }
 
 .content_img:hover div{
@@ -172,6 +216,7 @@
  visibility: visible;
  opacity: 0.7; 
  margin-bottom: 50px;
+
 }
 </style>
 </body>
