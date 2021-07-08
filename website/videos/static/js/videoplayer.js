@@ -69,13 +69,3 @@ function Validate(oForm) {
     return true;
 }
 
-var check = function() {
-  if (document.getElementById('inputPassword1').value ==
-    document.getElementById('inputPassword2').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'Matched!';
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'Not matched :(';
-  }
-}

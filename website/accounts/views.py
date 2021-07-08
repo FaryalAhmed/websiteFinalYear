@@ -88,3 +88,10 @@ def SignupView(request):
     else: 
         # User wants to enter info
         return render(request, './signup.html')
+
+def Contact(request):
+    if request.user.is_authenticated:
+        return render(request,'./contactUs.html', {'username': request.user.username})
+        
+    else:
+        return redirect('../login')
