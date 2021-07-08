@@ -1,4 +1,9 @@
+
+
+
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +16,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
 </head>
+
 <body style=" background-color:  #1b2125;">
+
+    
+
+
+
     <div class="container">
       <form action="" method="POST">
         {% csrf_token %}
@@ -19,19 +30,26 @@
             <div class="col-md-4">
 
             </div>
+            
             <div class="col-md-4">
                 <h2 style="text-align: center;">Login to your account. &copy;
                 </h2>
                     <br><br>
+            {% if messages %}
+            <ul class="messages" >
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <br> <br>
                     <label for="username">Username</label>
                     <input required type="text" class="form-control" id="username" placeholder="Username" 
                     name= "username" pattern="\S+.*">    
                     <br><br>
 
                     <label for="inputPassword4">Password</label>
-                    <div data-tip="Minimum 4 chracters allowed.">
-                    <input required type="password" class="form-control" pattern=".{4,}" id="inputPassword4" placeholder="Password" name= "password">        
-                    </div>
+                    <input required type="password" class="form-control"  id="inputPassword4" placeholder="Password" name= "password">        
                     <br>                   
             </div>
             <div class="col-md-4">
@@ -50,7 +68,7 @@
             </div>
             
             <div class="col-md-3">
-                <a href="../index">forgot password?</a>
+                <a href="../reset-password">forgot password?</a>
             </div>
 
             <div class="col-md-2">
@@ -69,6 +87,10 @@
            color: white;
            padding: 40px;
            align-items: center;
+       }
+       .messages{
+           color:white;
+           background-color:rgba(255, 0, 0, 0.603);
        }
    </style>
 </body>

@@ -13,16 +13,19 @@
 
     <div class='box-2'>
       <a style = 'color:black;'href = '{% url 'detail' query.id %}'><h2>{{query.title}}</h2></a>
+      <br>
+      <p style='color:teal;'> <b>{{query.views}} Views</b></p>
+
       <p><i>
           {{query.description}}
         </i></p>
+      
+        <p><h4 style="color:rgb(161, 41, 190)">{{query.user.username}}</h4></p>
 
       <hr />
-      <p>{{query.user.username}}</p>
 
-      <p style='color:teal;'> <b>{{query.views}} Views</b></p>
 
-     
+     <br>
     </div>
   </div>
 </div>

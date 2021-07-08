@@ -26,7 +26,6 @@ def UploadView(request):
 
         return render(request, 'upload.html', {})
 
-
 def VideosView(request):
 
     queryset_list = Video.objects.all()

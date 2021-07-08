@@ -41,10 +41,10 @@
     <div class="box-3">
       <div class='container-2'>
   
-        <div class="inner_container recommendations">
+        <div class="inner_container recommendations" >
           {% for video in recentvideos %}
-          <div class="container-3-box">
-            <div class='ui raised segment'> <a class="ui teal left ribbon label"> {{video.likes}}</a>
+          <div class="container-3-box" >
+            <div class='ui raised segment'> <a class="ui teal left ribbon label"> </a>
               <div class='container-2'>
                 <p><a href = "{% url 'detail' video.id %}"><img src='{{video.thumbnail.url}}' height=100 width=100 class='border recommend'  /></a> </p>
                 <div class="center">

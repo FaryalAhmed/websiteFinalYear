@@ -4,3 +4,15 @@ from .models import Video, UserProfile
 
 admin.site.register(Video)
 admin.site.register(UserProfile)
+
+
+
+
+
+
+
+
+
+
+
+

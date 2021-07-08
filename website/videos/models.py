@@ -27,6 +27,8 @@ class UserProfile(models.Model):
     
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
+    User._meta.get_field('email')._unique = True
+
 
     def __str__(self):
         return self.username

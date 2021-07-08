@@ -30,27 +30,38 @@ var check = function() {
       <form action="" method="POST">
         {% csrf_token %}
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
             </div>
-            <div class="col-md-4">
-                <h2 style="text-align: center;">Signup for a new account &copy;
-                </h2>
+            
+            <div class="col-md-5">
+                <h2 style="text-align: center;">Signup for a new account &copy;</h2>
+                <br>
+                
+                {% if messages %}
+                <ul class="messages" >
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <br>
+
                      <label for="inputName4">First Name</label>
                      <div data-tip="Minimum three letters needed.">
-                     <input required pattern="[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" type="text" class="form-control" id="inputName4" placeholder="Enter first name" name="firstname"> 
+                     <input  type="text" class="form-control" id="inputName4" placeholder="Enter first name" name="firstname"> 
                      </div>
                      <br>
                      
                      <label for="inputName4">Last Name</label>
                      <div data-tip="Minimum three letters needed.">
-                     <input required type="text" pattern="[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" class="form-control" id="inputName4" placeholder="Enter last name" name="lastname"> 
+                     <input required type="text" class="form-control" id="inputName4" placeholder="Enter last name" name="lastname"> 
                      </div>
                      <br>
 
                     <label for="inputEmail4">Email</label>
                      <div data-tip="Follow correct email format.">
                     <input required type="email" class="form-control" id="inputEmail4" placeholder="Enter Email" 
-                    name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z.-]+.[a-z]{3}$">     
+                    name="email" >     
                     </div>
                     <br>
 
@@ -164,6 +175,11 @@ var check = function() {
 [data-tip]:hover:after {
 	display:block;
 }
+
+.messages{
+           color:white;
+           background-color:rgba(216, 95, 190, 0.603);
+       }
    </style>
 </body>
 </html>

@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'accounts',
     'videos',
     'django_countries',
+    'crispy_forms'
 
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,11 +83,13 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'delete_it',
+        'NAME': 'del',
         'USER':'root',
-        'PASSWORD':'mypass'
+        'PASSWORD':'itsmysqlpassword123'
     }
 }
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+# AUTH_USER_MODEL = 'videos.UserProfile'
 
 
 # Password validation
