@@ -10,10 +10,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap" rel="stylesheet">
+<script>
+      var check3 = function() {
+    var x = document.forms["myForm"]["username"].value;
+    if (x == "" || x == null) {
+      alert("Username must be filled out");
+      return false;
+    }
+  }
+</script>
 </head>
 <body style=" background-color:  #1b2125;">
     <div class="container">
-      <form action="" method="POST">
+      <form action="" method="POST" name="myForm" onload='document.myForm.focus()'>
         {% csrf_token %}
         <div class="row">
             <div class="col-md-4">
@@ -25,14 +34,16 @@
                     <br><br>
                     <label for="username">Username</label>
                     <input required type="text" class="form-control" id="username" placeholder="Username" 
-                    name= "username" pattern="\S+.*">    
+                    name= "username" onfocusout='check3();'>    
                     <br><br>
 
                     <label for="inputPassword4">Password</label>
                     <div data-tip="Minimum 4 chracters allowed.">
-                    <input required type="password" class="form-control" pattern=".{4,}" id="inputPassword4" placeholder="Password" name= "password">        
+                    <input required type="password" class="form-control" pattern=".{4,}"
+                     id="inputPassword4" placeholder="Password" name= "password">        
                     </div>
-                    <br>                   
+                    <br>     
+                     
             </div>
             <div class="col-md-4">
                 <a href="../signup">Not a User? Click here to signup.</a>
@@ -54,7 +65,11 @@
             </div>
 
             <div class="col-md-2">
-
+                         <!--
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}   
+                         --> 
             </div>
         </div>
         </form>
