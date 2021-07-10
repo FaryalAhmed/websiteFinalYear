@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'del',
         'USER':'root',
-        'PASSWORD':'itsmysqlpassword123'
+        'PASSWORD':'itsmysqlpass3'
     }
 }
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'

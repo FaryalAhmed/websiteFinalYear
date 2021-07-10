@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    
+           <div style="margin: auto; width: 50%; border: 3px solid green; padding: 10px;">
+      {% for query in queryset %}
+       {% if query.title %}
+       <a style = 'color:wheat; text-align: center;'href = "{% url 'A_detail' query.id %}"><h2>{{query.title}}</h2></a>  
+       {% else %}
+            <h1 style = 'color:wheat; text-align: center;'>Add some Videos First</h1>
+            <hr />
+       {% endif %}
+      
+      {% endfor %}
+      <a href="{%url 'home'%}"> Go to Home</a>
+
+    </div> 
+      
+      
+      
+      <!-- HERE IS WHERE WE SHOW VIDEOS USING PAGNATION-->
+     
+</body>
+</html>

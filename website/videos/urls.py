@@ -7,5 +7,9 @@ from . import views
 urlpatterns = [
     path('', views.VideosView, name = 'videos'),
     path('upload/',views.UploadView,name='upload'),
+    path('gallery/',views.Gallery,name='gallery'),
+    path('gallery/<int:anomaly_id>',views.GalleryView,name='A_detail'),
     path('<int:video_id>', views.VideoDetailView, name='detail'),
+    path('predict/<int:video_id>', views.saveFrame, name = 'frames'),
+
 ]
