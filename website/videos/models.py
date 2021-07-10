@@ -23,6 +23,8 @@ class UserProfile(models.Model):
     picture = models.ImageField(upload_to='images', default = "media/images/defaultprofilepicture.png",max_length=1000)
     contact_no = models.CharField(max_length=11)
     videos = models.ManyToManyField(Video,blank=True)
+    forget_password_token = models.CharField(max_length=100)
+
 
     
     USERNAME_FIELD = 'username'

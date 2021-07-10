@@ -27,11 +27,6 @@
 </head>
 
 <body style=" background-color:  #1b2125;">
-
-    
-
-
-
     <div class="container">
       <form action="" method="POST" name="myForm" onload='document.myForm.focus()'>
         {% csrf_token %}
@@ -61,10 +56,6 @@
 
                     <input required type="password" class="form-control"  id="inputPassword4" placeholder="Password" name= "password">        
                     <br>                   
-                    <div data-tip="Minimum 4 chracters allowed.">
-                    <input required type="password" class="form-control" pattern=".{4,}"
-                     id="inputPassword4" placeholder="Password" name= "password">        
-                    </div>
                     <br>     
                      
             </div>
@@ -84,7 +75,7 @@
             </div>
             
             <div class="col-md-3">
-                <a href="../reset-password">forgot password?</a>
+                <a href="../forget-password">forgot password?</a>
             </div>
 
             <div class="col-md-2">
