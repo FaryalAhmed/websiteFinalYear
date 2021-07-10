@@ -81,7 +81,10 @@
   
       </img>
       <p style='color:purple;' class='creator'><b>{{video.user.username}}</b></p>
-    
+      <form action="">
+        <button class="ui olive basic button" formaction="{% url 'frames' video.id %}" >Predict</button>
+      </form>
+  
   
       <h4 style='color:teal;'><i>{{video.views}} views</i></h4>
   

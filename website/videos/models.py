@@ -14,6 +14,12 @@ class Video(models.Model):
     class Meta:
         ordering = ["-created"]
 
+class PredictedAnomaly(models.Model):
+    title = models.CharField(max_length=50)
+    video = models.FileField(upload_to='videos')
+    frame1 = models.ImageField(upload_to='images',null='true',max_length=1000)
+    frame2 = models.ImageField(upload_to='images',null='true',max_length=1000)
+    
 
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile',on_delete=models.CASCADE)

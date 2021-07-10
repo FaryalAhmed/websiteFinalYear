@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+<br><br><br><br><br>
+    <div  style="margin: auto; width: 80%; border: 3px solid green; padding: 10px;">
+      <h1 style="color: wheat; text-align: center; text-transform: uppercase;" >{{video.title}}</h1>
+
+        <div class="row">
+          <div class="col-4 " style="display: inline; ">
+            <video src="{{video.video.url}}" autoplay controls="true"  width="380" height="210" preload="auto" style="border: 3px solid wheat"></video>          </div>
+          <div class="col-4 " style="display: inline; ">
+            <img src="{{video.frame1.url}}" width="280" height="210" style="border: 3px solid wheat" >        </div>
+          <div class="col-4 " style="display: inline; ">
+            <img src="{{video.frame2.url}}" width="280" height="210" style="border: 3px solid wheat" >        </div>
+      </div>
+      <hr>
+    <a href="{%url 'home'%}"> Go to Home</a>
+</body>
+</html>

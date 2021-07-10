@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Video, UserProfile
+from .models import Video, UserProfile,PredictedAnomaly
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
-
+import os
+from moviepy.editor import *
+import cv2 
 
 
 def UploadView(request):
@@ -43,8 +45,30 @@ def VideosView(request):
    
     return render(request, 'videos.html', {'queryset': queryset})
 
-
-
+def Gallery(request):
+    queryset = PredictedAnomaly.objects.all()
+    
+    return render(request,'anomaly.html',{'queryset': queryset})
+def GalleryView(request,anomaly_id):
+        video = get_object_or_404(PredictedAnomaly, pk = anomaly_id)
+        return render(request,'show.html',{'video':video})
+def saveFrame(request,video_id): 
+ 
+    video = get_object_or_404(Video, pk = video_id)
+    path = os.path.dirname(__file__)
+    path = path.replace('videos',video.video.url)
+    clip = VideoFileClip(path) 
+    clip = clip.subclip(0, 10)  
+    clip.write_videofile("media/videos/"+video.title+".mp4") 
+    clip.ipython_display(width = 360) 
+    anomaly = PredictedAnomaly()
+    path1 = "videos/"+video.title+".mp4"
+    anomaly.video = path1
+    anomaly.title = video.title
+    pic = UserProfile.objects.last()
+    anomaly.frame1 = pic.picture.url
+    anomaly.frame2 = pic.picture.url
+    anomaly.save()       
 def VideoDetailView(request,video_id):
 
 
