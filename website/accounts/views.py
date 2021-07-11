@@ -39,7 +39,7 @@ def LogoutView(request):
 
 def SignupView(request):
     if request.user.is_authenticated:    
-        return redirect('home')
+        return redirect('../login')
 
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:

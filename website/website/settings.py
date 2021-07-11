@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'del',
+        'NAME': 'new_del',
         'USER':'root',
-        'PASSWORD':'itsmysqlpass3'
+        'PASSWORD':'itsmysqlpassword123'
     }
 }
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
